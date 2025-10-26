@@ -26,7 +26,7 @@ IdeaScape is a responsive web application that allows users to explore, search, 
 ## Tech Stack
 
 - **Frontend**: React.js, Tailwind CSS, Material-UI
-- **Backend**:Node js , Express js
+- **Backend**:Node js , Express js , mongoDB
 - **Animations**: GSAP, AOS , Framer Motion
 - **API**: Unsplash API
 - **Version Control**: Git & GitHub
