@@ -13,7 +13,9 @@ export default function Results() {
     const fetchImages = async () => {
       try {
         setLoading(true);
-        const res = await axios.get(`http://localhost:5000/api/search/${query}`);
+        const res = await axios.get(
+          `http://localhost:5000/api/search/${query}`
+        );
         setImages(res.data.results);
         setLoading(false);
       } catch (error) {
@@ -37,10 +39,10 @@ export default function Results() {
       <Background />
       <div className="p-4">
         {/* Column-wise masonry layout */}
-        <div className="columns-2 md:columns-3 lg:columns-4 gap-4">
+        <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4">
           {images.map((img, idx) => (
             <div key={idx} className="break-inside-avoid mb-4">
-              <ImageCard key={idx} img={img} index = {idx} imagesArray = {images} />
+              <ImageCard key={idx} img={img} index={idx} imagesArray={images} />
             </div>
           ))}
         </div>

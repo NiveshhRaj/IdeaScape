@@ -24,6 +24,7 @@ const Search = styled("div")(({ theme }) => ({
     boxShadow: "0 0 5px rgba(0,0,0,0.2)",
   },
   [theme.breakpoints.down("sm")]: { width: "80%" },
+  [theme.breakpoints.down("xs")]: { width: "100%" },
 }));
 
 const SearchIconWrapper = styled("div")(({ theme }) => ({
@@ -54,11 +55,9 @@ export default function MinimalNavbar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [visible, setVisible] = useState(true);
   const [opacity, setOpacity] = useState(1);
-  const [placeholder, setPlaceholder] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Topics for animated placeholder
   const topics = [
     "nature",
     "interior",
@@ -68,16 +67,15 @@ export default function MinimalNavbar() {
     "photography",
   ];
 
-  // Typing animation with blinking cursor
+  // Typing animation
   useEffect(() => {
-    if (query) return; // stop animation if user types
+    if (query) return;
 
     let topicIndex = 0;
     let charIndex = 0;
     let forward = true;
-
-    const typeSpeed = 0.15; // seconds per character
-    const pauseTime = 1.2; // pause between words
+    const typeSpeed = 0.15;
+    const pauseTime = 1.2;
 
     const typeWord = () => {
       const word = topics[topicIndex];
@@ -102,24 +100,20 @@ export default function MinimalNavbar() {
       gsap.delayedCall(typeSpeed, typeWord);
     };
 
-    // blinking cursor
     gsap.to(cursorRef.current, {
       opacity: 0,
       repeat: -1,
       duration: 0.5,
       yoyo: true,
     });
-
     typeWord();
   }, [query]);
 
-  // Check login state
   useEffect(() => {
     const token = localStorage.getItem("token");
     setIsLoggedIn(!!token);
   }, []);
 
-  // Control visibility based on page
   useEffect(() => {
     if (location.pathname === "/") {
       setVisible(true);
@@ -132,7 +126,6 @@ export default function MinimalNavbar() {
     }
   }, [location]);
 
-  // Show navbar on hover near top (Results page only)
   useEffect(() => {
     if (location.pathname.startsWith("/results")) {
       const handleMouseMove = (e) => {
@@ -155,8 +148,12 @@ export default function MinimalNavbar() {
     navigate("/login");
   };
 
-  // Hide completely for full-image page
-  if (location.pathname.startsWith("/full-image")) return null;
+  if (
+    location.pathname.startsWith("/full-image") ||
+    location.pathname.startsWith("/login") ||
+    location.pathname.startsWith("/signup")
+  )
+    return null;
 
   return (
     <Box sx={{ flexGrow: 1, pb: 2 }}>
@@ -193,7 +190,7 @@ export default function MinimalNavbar() {
               fontWeight: "bold",
               color: "#000",
               fontFamily: "Merriweather",
-              fontSize: "2rem",
+              fontSize: { xs: "1.5rem", sm: "2rem" },
               cursor: "pointer",
             }}
             onClick={() => navigate("/")}
@@ -201,7 +198,6 @@ export default function MinimalNavbar() {
             IdeaScape
           </Typography>
 
-          {/* Search Bar */}
           <form onSubmit={handleSearch} style={{ flexGrow: 1 }}>
             <Search>
               <SearchIconWrapper>
@@ -246,8 +242,15 @@ export default function MinimalNavbar() {
             </Search>
           </form>
 
-          {/* Buttons */}
-          <Box sx={{ display: "flex", gap: 1, ml: 2 }}>
+          <Box
+            sx={{
+              display: "flex",
+              gap: 1,
+              ml: { xs: 0, sm: 2 },
+              flexDirection: { xs: "column", sm: "row" },
+              mt: { xs: 1, sm: 0 },
+            }}
+          >
             {isLoggedIn ? (
               <Button
                 variant="outlined"

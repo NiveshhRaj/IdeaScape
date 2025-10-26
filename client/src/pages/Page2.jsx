@@ -65,17 +65,17 @@ const Page2 = () => {
   }, []);
 
   return (
-    <div className="h-screen flex rounded-2xl overflow-hidden bg-gradient-to-r from-pink-200 to-pink-400">
+    <div className="min-h-screen flex flex-col-reverse md:flex-row rounded-2xl overflow-hidden bg-gradient-to-r from-pink-200 to-pink-400 p-4 md:p-10 justify-center items-center">
       {/* Left - Text */}
       <div
         ref={leftRef}
-        className="w-1/2 flex flex-col justify-center p-10 left"
+        className="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start text-center md:text-left p-4 md:p-10"
         data-aos="fade-right"
       >
-        <h1 className="text-6xl md:text-7xl font-bold mb-4 text-pink-600 text-center">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 text-pink-600">
           Save Ideas you like
         </h1>
-        <p className="text-xl md:text-2xl text-pink-600 text-center">
+        <p className="text-lg sm:text-xl md:text-2xl text-pink-600">
           Collect your favourites so you can get back to them later.
         </p>
       </div>
@@ -83,14 +83,14 @@ const Page2 = () => {
       {/* Right - Image */}
       <div
         ref={rightRef}
-        className="w-1/2 flex items-center justify-center right overflow-hidden"
+        className="w-full md:w-1/2 flex items-center justify-center overflow-hidden mb-6 md:mb-0"
         data-aos="fade-left"
       >
         <img
           ref={imgRef}
           src={img}
           alt="Moodboard AI"
-          className="max-w-full max-h-full object-contain z-10"
+          className="max-w-[90%] sm:max-w-[70%] md:max-w-full max-h-[400px] object-contain z-10"
         />
       </div>
     </div>

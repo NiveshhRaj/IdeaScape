@@ -61,7 +61,7 @@ export default function Home() {
       }
     });
 
-    // Snap scrolling ONLY for content sections (exclude Navbar)
+    // Snap scrolling for content sections
     ScrollTrigger.create({
       trigger: ".sections-container",
       start: "top top",
@@ -70,25 +70,24 @@ export default function Home() {
       ease: "power1.inOut",
     });
 
-    // Refresh ScrollTrigger after render
     ScrollTrigger.refresh();
   }, []);
 
   return (
-    <div className="sections-container">
-      {/* Navbar outside of snap */}
-      <section>
+    <div className="sections-container w-full overflow-x-hidden">
+      {/* Navbar */}
+      <section className="w-full">
         <Navbar />
       </section>
 
       {/* Snap Sections */}
-      <section className="snap-section h-screen overflow-hidden">
+      <section className="snap-section min-h-screen overflow-hidden flex flex-col md:flex-row items-center justify-center px-4 md:px-10">
         <Page1 />
       </section>
-      <section className="snap-section h-screen overflow-hidden">
+      <section className="snap-section min-h-screen overflow-hidden flex flex-col md:flex-row items-center justify-center px-4 md:px-10">
         <Page2 />
       </section>
-      <section className="snap-section h-screen overflow-hidden">
+      <section className="snap-section min-h-screen overflow-hidden flex flex-col md:flex-row items-center justify-center px-4 md:px-10">
         <Page3 />
       </section>
     </div>

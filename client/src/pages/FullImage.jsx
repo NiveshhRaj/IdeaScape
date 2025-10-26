@@ -41,7 +41,7 @@ export default function FullImage() {
     >
       {/* Close Button */}
       <button
-        className="cursor-pointer absolute top-6 right-6 text-white hover:text-gray-300 transition"
+        className="absolute top-6 right-6 p-2 rounded-full bg-black/50 hover:bg-black/70 text-white transition"
         onClick={(e) => {
           e.stopPropagation();
           navigate(-1);
@@ -52,24 +52,24 @@ export default function FullImage() {
 
       {/* Left Arrow */}
       <button
-        className="cursor-pointer absolute left-6 text-white hover:text-gray-300 transition"
+        className="absolute left-4 sm:left-6 p-2 rounded-full bg-black/50 hover:bg-black/70 text-white transition"
         onClick={(e) => {
           e.stopPropagation();
           handlePrev();
         }}
       >
-        <ArrowLeft size={40} />
+        <ArrowLeft size={36} />
       </button>
 
       {/* Right Arrow */}
       <button
-        className="cursor-pointer absolute right-6 text-white hover:text-gray-300 transition"
+        className="absolute right-4 sm:right-6 p-2 rounded-full bg-black/50 hover:bg-black/70 text-white transition"
         onClick={(e) => {
           e.stopPropagation();
           handleNext();
         }}
       >
-        <ArrowRight size={40} />
+        <ArrowRight size={36} />
       </button>
 
       {/* Image with Animation */}
@@ -78,12 +78,12 @@ export default function FullImage() {
           key={img.id}
           src={img.urls.regular}
           alt={img.alt_description || "Moodboard Image"}
-          className="max-w-full max-h-[90vh] rounded-lg shadow-2xl"
+          className="max-w-full max-h-[90vh] sm:max-h-[80vh] rounded-lg shadow-2xl object-contain"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.9 }}
           transition={{ duration: 0.5 }}
-          onClick={(e) => e.stopPropagation()}
+          onClick={(e) => e.stopPropagation()} 
         />
       </AnimatePresence>
     </div>
