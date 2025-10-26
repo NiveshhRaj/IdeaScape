@@ -7,6 +7,7 @@ import authRoutes from "./routes/AuthRoutes.js";
 
 dotenv.config();
 
+const PORT = process.env.PORT || 6000;
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -24,7 +25,9 @@ app.get("/api/search/:query", async (req, res) => {
   try {
     const response = await axios.get("https://api.unsplash.com/search/photos", {
       params: { query, per_page: count },
-      headers: { Authorization: `Client-ID ${process.env.UNSPLASH_ACCESS_KEY}` },
+      headers: {
+        Authorization: `Client-ID ${process.env.UNSPLASH_ACCESS_KEY}`,
+      },
     });
     res.json(response.data);
   } catch (err) {
@@ -33,4 +36,4 @@ app.get("/api/search/:query", async (req, res) => {
   }
 });
 
-app.listen(5000, () => console.log("Server running on port 5000"));
+app.listen(PORT, () => console.log("Server running on port 5000"));

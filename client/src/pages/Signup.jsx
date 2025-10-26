@@ -13,7 +13,7 @@ export default function Signup() {
   const handleSignup = async () => {
     if (password !== confirmPassword) return alert("Passwords do not match!");
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/signup", { email, password });
+      const res = await axios.post("https://ideascape-backend.onrender.com/api/auth/signup", { email, password });
       localStorage.setItem("token", res.data.token);
       navigate("/");
     } catch (err) {
