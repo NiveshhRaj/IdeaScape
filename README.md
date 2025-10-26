@@ -1,4 +1,4 @@
-# IdeaScape / Moodboard AI
+# IdeaScape
 
 ## Overview
 
