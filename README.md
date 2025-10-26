@@ -63,6 +63,22 @@ IdeaScape is a responsive web application that allows users to explore, search, 
 
 ## Screenshots
 
+   ### Homepage
+   ![Home Page](./client/src/assets/screenshots/Screenshot%202025-10-26%20162732.png)
+
+   ### Secondpage
+   ![Second Page](./client/src/assets/screenshots/Screenshot%202025-10-26%20162759.png)
+
+   ### Thirdpage
+   ![Third Page](./client/src/assets/screenshots/Screenshot%202025-10-26%20162812.png)
+
+   ### Resultpage
+   ![Home Page](./client/src/assets/screenshots/Screenshot%202025-10-26%20162834.png)
+
+   ### Image
+   ![Home Page](./client/src/assets/screenshots/Screenshot%202025-10-26%20162844.png)
+---
+
 ## Author
 
     Niveshhraj
