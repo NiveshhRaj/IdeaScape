@@ -24,7 +24,7 @@ export default function Login() {
       sx={{
         position: "relative",
         minHeight: "100vh",
-        background: "url('/login-bg.jpg') no-repeat center center / cover",
+        // background: "url('/login-bg.jpg') no-repeat center center / cover",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
